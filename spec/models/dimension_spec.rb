@@ -1,5 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Dimension, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  describe "model" do 
+
+    let(:dimension) { create(:dimension)}
+
+    it "has a wight." do 
+      expect(dimension.width_d).to eq(100)   
+    end
+
+  end
+
 end
+ 

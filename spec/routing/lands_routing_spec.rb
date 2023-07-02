@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe LandsController, type: :routing do
   describe "routing" do
     it "routes to #index" do
-      expect(get: "/lands").to route_to("lands#index")
+      expect(get: "/api/lands").to route_to("lands#index")
     end
 
     it "routes to #show" do

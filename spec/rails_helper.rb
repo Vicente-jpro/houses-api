@@ -24,11 +24,6 @@ Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f 
 
 
 
-config.include Devise::Test::ControllerHelpers, type: :controller
-config.include Devise::Test::ControllerHelpers, type: :view
-
-config.include FactoryBot::Syntax::Methods
-
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
@@ -39,6 +34,12 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+
+  #config.include Devise::Test::ControllerHelpers, type: :controller
+#config.include Devise::Test::ControllerHelpers, type: :view
+
+config.include FactoryBot::Syntax::Methods
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

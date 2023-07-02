@@ -12,7 +12,7 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/lands", type: :request do
+RSpec.describe "/api/lands", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Land. As you add validations to Land, be sure to
   # adjust the attributes here as well.
@@ -35,7 +35,7 @@ RSpec.describe "/lands", type: :request do
   describe "GET /index" do
     it "renders a successful response" do
       Land.create! valid_attributes
-      get lands_url, headers: valid_headers, as: :json
+      get api_lands_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
   end
@@ -43,7 +43,7 @@ RSpec.describe "/lands", type: :request do
   describe "GET /show" do
     it "renders a successful response" do
       land = Land.create! valid_attributes
-      get land_url(land), as: :json
+      get api_land_url(land), as: :json
       expect(response).to be_successful
     end
   end
