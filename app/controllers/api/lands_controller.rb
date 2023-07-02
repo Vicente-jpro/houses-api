@@ -1,4 +1,4 @@
-class LandsController < ApplicationController
+class Api::LandsController < ApplicationController
   before_action :set_land, only: %i[ show update destroy ]
 
   # GET /lands
@@ -18,7 +18,7 @@ class LandsController < ApplicationController
     @land = Land.new(land_params)
 
     if @land.save
-      render json: @land, status: :created, location: @land
+      render json: @land, status: :created, location: api_land_url(@land)
     else
       render json: @land.errors, status: :unprocessable_entity
     end
@@ -49,7 +49,7 @@ class LandsController < ApplicationController
       params.require(:land).permit(
         :land_description, 
         :price, 
-        dimension_attributes: [:id, :width_d, :height_d, :_destroy], 
-        address_attributes: [:id, :street, :_destroy])
+        dimension_attributes: [:id, :width_d, :length_d, :_destroy], 
+        address_attributes: [:id, :street, :city_id, :_destroy])
     end
 end
