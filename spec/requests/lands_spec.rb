@@ -12,9 +12,9 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/properties", type: :request do
+RSpec.describe "/lands", type: :request do
   # This should return the minimal set of attributes required to create a valid
-  # Property. As you add validations to Property, be sure to
+  # Land. As you add validations to Land, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -26,7 +26,7 @@ RSpec.describe "/properties", type: :request do
 
   # This should return the minimal set of values that should be in the headers
   # in order to pass any filters (e.g. authentication) defined in
-  # PropertiesController, or in your router and rack
+  # LandsController, or in your router and rack
   # middleware. Be sure to keep this updated too.
   let(:valid_headers) {
     {}
@@ -34,48 +34,48 @@ RSpec.describe "/properties", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Property.create! valid_attributes
-      get properties_url, headers: valid_headers, as: :json
+      Land.create! valid_attributes
+      get lands_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      property = Property.create! valid_attributes
-      get property_url(property), as: :json
+      land = Land.create! valid_attributes
+      get land_url(land), as: :json
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Property" do
+      it "creates a new Land" do
         expect {
-          post properties_url,
-               params: { property: valid_attributes }, headers: valid_headers, as: :json
-        }.to change(Property, :count).by(1)
+          post lands_url,
+               params: { land: valid_attributes }, headers: valid_headers, as: :json
+        }.to change(Land, :count).by(1)
       end
 
-      it "renders a JSON response with the new property" do
-        post properties_url,
-             params: { property: valid_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with the new land" do
+        post lands_url,
+             params: { land: valid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:created)
         expect(response.content_type).to match(a_string_including("application/json"))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Property" do
+      it "does not create a new Land" do
         expect {
-          post properties_url,
-               params: { property: invalid_attributes }, as: :json
-        }.to change(Property, :count).by(0)
+          post lands_url,
+               params: { land: invalid_attributes }, as: :json
+        }.to change(Land, :count).by(0)
       end
 
-      it "renders a JSON response with errors for the new property" do
-        post properties_url,
-             params: { property: invalid_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with errors for the new land" do
+        post lands_url,
+             params: { land: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to match(a_string_including("application/json"))
       end
@@ -88,28 +88,28 @@ RSpec.describe "/properties", type: :request do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested property" do
-        property = Property.create! valid_attributes
-        patch property_url(property),
-              params: { property: new_attributes }, headers: valid_headers, as: :json
-        property.reload
+      it "updates the requested land" do
+        land = Land.create! valid_attributes
+        patch land_url(land),
+              params: { land: new_attributes }, headers: valid_headers, as: :json
+        land.reload
         skip("Add assertions for updated state")
       end
 
-      it "renders a JSON response with the property" do
-        property = Property.create! valid_attributes
-        patch property_url(property),
-              params: { property: new_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with the land" do
+        land = Land.create! valid_attributes
+        patch land_url(land),
+              params: { land: new_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to match(a_string_including("application/json"))
       end
     end
 
     context "with invalid parameters" do
-      it "renders a JSON response with errors for the property" do
-        property = Property.create! valid_attributes
-        patch property_url(property),
-              params: { property: invalid_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with errors for the land" do
+        land = Land.create! valid_attributes
+        patch land_url(land),
+              params: { land: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to match(a_string_including("application/json"))
       end
@@ -117,11 +117,11 @@ RSpec.describe "/properties", type: :request do
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested property" do
-      property = Property.create! valid_attributes
+    it "destroys the requested land" do
+      land = Land.create! valid_attributes
       expect {
-        delete property_url(property), headers: valid_headers, as: :json
-      }.to change(Property, :count).by(-1)
+        delete land_url(land), headers: valid_headers, as: :json
+      }.to change(Land, :count).by(-1)
     end
   end
 end
