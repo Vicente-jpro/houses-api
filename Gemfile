@@ -34,16 +34,18 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem "rack-cors"
+gem 'rack-cors', '~> 2.0', '>= 2.0.1'
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
-gem 'kaminari'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 # Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
 gem 'rails-i18n', '~> 7.0.0'
 
 # Translations for the devise gem
-gem 'devise-i18n'
+gem 'devise-i18n', '~> 1.11'
+
+gem 'active_model_serializers', '~> 0.10.13'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
