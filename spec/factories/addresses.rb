@@ -4,7 +4,7 @@ FactoryBot.define do
     city
     
     # Own attributes 
-    street { "MyString" }
+    street { "kilamba" }
 
   end
 end
