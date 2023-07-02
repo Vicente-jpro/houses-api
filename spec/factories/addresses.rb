@@ -1,6 +1,10 @@
 FactoryBot.define do
   factory :address do
-    street { "MyString" }
-    city { nil }
+    # Association
+    city
+    
+    # Own attributes 
+    street { "kilamba" }
+
   end
 end

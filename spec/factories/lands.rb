@@ -1,8 +1,15 @@
 FactoryBot.define do
   factory :land do
-    land_description { "MyString" }
-    price { 1 }
-    dimension { nil }
-    address { nil }
+
+    ## Associations 
+    address
+    dimension
+    #user
+    #category {user.category}
+    
+    ## Own attributes
+    land_description { "kilamba" }
+    price { 10 }
+
   end
 end

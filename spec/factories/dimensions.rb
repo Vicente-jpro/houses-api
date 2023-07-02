@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :dimension do
-    width_d { 1 }
-    length_d { 1 }
+    width_d { 200 }
+    length_d { 200 }
   end
 end

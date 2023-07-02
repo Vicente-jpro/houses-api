@@ -1,19 +1,19 @@
 class Api::LandsController < ApplicationController
   before_action :set_land, only: %i[ show update destroy ]
 
-  # GET /lands
+  # GET /api/lands
   def index
     @lands = Land.all.includes(:dimension, :land)
 
     render json: @lands
   end
 
-  # GET /lands/1
+  # GET /api/lands/1
   def show
     render json: @land
   end
 
-  # POST /lands
+  # POST /api/lands
   def create
     @land = Land.new(land_params)
 
@@ -24,7 +24,7 @@ class Api::LandsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /lands/1
+  # PATCH/PUT /api/lands/1
   def update
     if @land.update(land_params)
       render json: @land
@@ -33,7 +33,7 @@ class Api::LandsController < ApplicationController
     end
   end
 
-  # DELETE /lands/1
+  # DELETE /api/lands/1
   def destroy
     @land.destroy
   end
