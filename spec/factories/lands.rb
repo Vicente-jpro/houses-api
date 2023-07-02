@@ -10,7 +10,6 @@ FactoryBot.define do
     ## Own attributes
     land_description { "kilamba" }
     price { 10 }
-    dimension { dimension.first }
-    address { address.first }
+
   end
 end
