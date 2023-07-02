@@ -3,7 +3,7 @@ class Api::LandsController < ApplicationController
 
   # GET /lands
   def index
-    @lands = Land.all
+    @lands = Land.all.includes(:dimension, :land)
 
     render json: @lands
   end
