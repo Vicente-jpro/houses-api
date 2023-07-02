@@ -29,9 +29,42 @@ Address.find_or_create_by!(street: "Talalice", city: City.all.sample)
 Address.find_or_create_by!(street: "Mutamba", city: City.all.sample)
 puts "Fim do cadastro das cidades."
 
-puts "Cadastrando as provincias..."
-Property.find_or_create_by!(property_description: "Luanda")
-Property.find_or_create_by!(property_description: "Úige")
-Property.find_or_create_by!(property_description: "Uila")
-Property.find_or_create_by!(property_description: "Kuanza Sul")
-puts "Fim do cadastro de provincias."
+
+puts "Cadastrando as dimensões...."
+Dimension.find_or_create_by!(width_d: 100, length_d: 500)
+Dimension.find_or_create_by!(width_d: 200, length_d: 600)
+Dimension.find_or_create_by!(width_d: 300, length_d: 700)
+Dimension.find_or_create_by!(width_d: 400, length_d: 800)
+puts "Fim do cadastro das dimensões."
+
+
+puts "Cadastrando as dimenções..."
+Land.find_or_create_by!(
+    land_description: "Terrono na terra nova", 
+    dimension: Dimension.all.sample,
+    price: 100000,
+    address: Address.all.sample
+   
+)
+Land.find_or_create_by!(
+    land_description: "Terrono na benfica", 
+    dimension: Dimension.all.sample,
+    price: 200000,
+    address: Address.all.sample
+    
+)
+Land.find_or_create_by!(
+    land_description: "Terrono na zona verde", 
+    dimension: Dimension.all.sample,
+    price: 300000,
+    address: Address.all.sample
+    
+)
+Land.find_or_create_by!(
+    land_description: "Terrono na kaala", 
+    dimension: Dimension.all.sample,
+    price: 400000,
+    address: Address.all.sample
+    
+)
+puts "Cadastrando as dimenções..."

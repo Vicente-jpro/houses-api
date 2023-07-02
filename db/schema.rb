@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_24_123852) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_02_121109) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.integer "city_id", null: false
@@ -34,10 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_123852) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "properties", force: :cascade do |t|
-    t.string "property_description"
+  create_table "lands", force: :cascade do |t|
+    t.string "land_description"
+    t.integer "price"
+    t.integer "dimension_id", null: false
+    t.integer "address_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_lands_on_address_id"
+    t.index ["dimension_id"], name: "index_lands_on_dimension_id"
   end
 
   create_table "provinces", force: :cascade do |t|
@@ -48,4 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_123852) do
 
   add_foreign_key "addresses", "cities"
   add_foreign_key "cities", "provinces"
+  add_foreign_key "lands", "addresses"
+  add_foreign_key "lands", "dimensions"
 end
